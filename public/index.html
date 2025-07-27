@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#dc2626">
+  <meta name="background-color" content="#ffffff">
+  <meta name="display" content="standalone">
+  <meta name="orientation" content="portrait-primary">
+  
+  <!-- App Information -->
+  <meta name="application-name" content="ফ্রেন্ডস এসোসিয়েশন">
+  <meta name="description" content="বড়-ছোট মিলে বন্ধুত্বের বন্ধন, সমাজের সেবাই বাণিজ্যিক সংঘটন">
+  <meta name="keywords" content="ফ্রেন্ডস এসোসিয়েশন, Friends Association, সদস্য ব্যবস্থাপনা, চাঁদা আদায়, আর্থিক রিপোর্ট">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://friends-association.vercel.app/">
+  <meta property="og:title" content="ফ্রেন্ডস এসোসিয়েশন">
+  <meta property="og:description" content="বড়-ছোট মিলে বন্ধুত্বের বন্ধন, সমাজের সেবাই বাণিজ্যিক সংঘটন">
+  <meta property="og:image" content="https://pub-cdn.sider.ai/u/U0VEHZKN5R2/web-coder/68847972f702e9eb3765e2af/resource/6da62bc0-9a63-492b-be95-a8c8f1de3dd1.png">
+  <meta property="og:locale" content="bn_BD">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://friends-association.vercel.app/">
+  <meta property="twitter:title" content="ফ্রেন্ডস এসোসিয়েশন">
+  <meta property="twitter:description" content="বড়-ছোট মিলে বন্ধুত্বের বন্ধন, সমাজের সেবাই বাণিজ্যিক সংঘটন">
+  <meta property="twitter:image" content="https://pub-cdn.sider.ai/u/U0VEHZKN5R2/web-coder/68847972f702e9eb3765e2af/resource/6da62bc0-9a63-492b-be95-a8c8f1de3dd1.png">
+  
+  <!-- Apple Touch Icons -->
+  <link rel="apple-touch-icon" href="https://pub-cdn.sider.ai/u/U0VEHZKN5R2/web-coder/68847972f702e9eb3765e2af/resource/6da62bc0-9a63-492b-be95-a8c8f1de3dd1.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://pub-cdn.sider.ai/u/U0VEHZKN5R2/web-coder/68847972f702e9eb3765e2af/resource/6da62bc0-9a63-492b-be95-a8c8f1de3dd1.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="https://pub-cdn.sider.ai/u/U0VEHZKN5R2/web-coder/68847972f702e9eb3765e2af/resource/6da62bc0-9a63-492b-be95-a8c8f1de3dd1.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://pub-cdn.sider.ai/u/U0VEHZKN5R2/web-coder/68847972f702e9eb3765e2af/resource/6da62bc0-9a63-492b-be95-a8c8f1de3dd1.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="https://pub-cdn.sider.ai/u/U0VEHZKN5R2/web-coder/68847972f702e9eb3765e2af/resource/6da62bc0-9a63-492b-be95-a8c8f1de3dd1.png">
+  
+  <!-- Apple PWA Meta -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="ফ্রেন্ডস এসোসিয়েশন">
+  
+  <!-- Microsoft -->
+  <meta name="msapplication-TileColor" content="#dc2626">
+  <meta name="msapplication-TileImage" content="https://pub-cdn.sider.ai/u/U0VEHZKN5R2/web-coder/68847972f702e9eb3765e2af/resource/6da62bc0-9a63-492b-be95-a8c8f1de3dd1.png">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://pub-cdn.sider.ai/u/U0VEHZKN5R2/web-coder/68847972f702e9eb3765e2af/resource/6da62bc0-9a63-492b-be95-a8c8f1de3dd1.png">
+  <link rel="shortcut icon" href="https://pub-cdn.sider.ai/u/U0VEHZKN5R2/web-coder/68847972f702e9eb3765e2af/resource/6da62bc0-9a63-492b-be95-a8c8f1de3dd1.png">
+  
+  <!-- Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://pub-cdn.sider.ai">
+  
+  <title>ফ্রেন্ডস এসোসিয়েশন - PLACED : 2023</title>
+</head>
+<body>
+  <div id="app"></div>
+  
+  <!-- PWA Install Prompt -->
+  <script>
+    // PWA Install prompt
+    let deferredPrompt;
+    
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      console.log('📱 PWা ইনস্টল প্রম্পট প্রস্তুত');
+    });
+    
+    // Show install prompt after 3 seconds
+    setTimeout(() => {
+      if (deferredPrompt && !window.matchMedia('(display-mode: standalone)').matches) {
+        const installBanner = document.createElement('div');
+        installBanner.innerHTML = `
+          <div style="
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #dc2626, #ea580c);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 9999;
+            font-family: 'Tahoma', sans-serif;
+            text-align: center;
+          ">
+            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+              <img src="https://pub-cdn.sider.ai/u/U0VEHZKN5R2/web-coder/68847972f702e9eb3765e2af/resource/6da62bc0-9a63-492b-be95-a8c8f1de3dd1.png" 
+                   style="width: 30px; height: 30px; margin-right: 10px;">
+              <strong>ফ্রেন্ডস এসোসিয়েশন অ্যাপ ইনস্টল করুন</strong>
+            </div>
+            <p style="margin: 5px 0; font-size: 14px;">দ্রুত অ্যাক্সেসের জন্য আপনার ফোনে ইনস্টল করুন</p>
+            <div style="margin-top: 15px;">
+              <button onclick="installPWA()" style="
+                background: white;
+                color: #dc2626;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 5px;
+                font-weight: bold;
+                margin-right: 10px;
+                cursor: pointer;
+              ">📱 ইনস্টল করুন</button>
+              <button onclick="closeBanner()" style="
+                background: transparent;
+                color: white;
+                border: 1px solid white;
+                padding: 8px 16px;
+                border-radius: 5px;
+                cursor: pointer;
+              ">❌ বন্ধ করুন</button>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(installBanner);
+        
+        window.installPWA = async () => {
+          if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log('🏠 PWA ইনস্টল:', outcome);
+            deferredPrompt = null;
+            document.body.removeChild(installBanner);
+          }
+        };
+        
+        window.closeBanner = () => {
+          document.body.removeChild(installBanner);
+        };
+      }
+    }, 5000);
+    
+    // Service Worker status
+    if ('serviceWorker' in navigator) {
+      console.log('⚙️ Service Worker supported');
+    }
+  </script>
+</body>
+</html>

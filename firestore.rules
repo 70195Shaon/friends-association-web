@@ -1,0 +1,59 @@
+// Firestore Security Rules for Friends Association
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users collection - only authenticated users can read/write their own data
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'super_admin'];
+    }
+    
+    // Members collection - admin and super_admin can read/write, members can read their own
+    match /members/{memberId} {
+      allow read, write: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'super_admin'];
+      allow read: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.memberNumber == resource.data.memberNumber;
+    }
+    
+    // Payments collection - admin and super_admin can read/write, members can read their own
+    match /payments/{paymentId} {
+      allow read, write: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'super_admin'];
+      allow read: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.memberNumber == resource.data.memberNumber;
+    }
+    
+    // Notices collection - admin and super_admin can read/write, members can read active notices
+    match /notices/{noticeId} {
+      allow read, write: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'super_admin'];
+      allow read: if request.auth != null && resource.data.isActive == true;
+    }
+    
+    // Financial Years collection - only super_admin can write, admin can read
+    match /financialYears/{yearId} {
+      allow read: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'super_admin'];
+      allow write: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'super_admin';
+    }
+    
+    // Monthly Reports collection - admin and super_admin can read/write
+    match /monthlyReports/{reportId} {
+      allow read, write: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'super_admin'];
+    }
+    
+    // Messages collection - admin can read all, members can read their own messages
+    match /messages/{messageId} {
+      allow read, write: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'super_admin'];
+      allow read, write: if request.auth != null && request.auth.uid == resource.data.fromUserId;
+      allow create: if request.auth != null;
+    }
+    
+    // Password Change Logs - only super_admin can read
+    match /passwordChangeLogs/{logId} {
+      allow read: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'super_admin';
+      allow create: if request.auth != null;
+    }
+    
+    // Admin Management - only super_admin can manage admins
+    match /admins/{adminId} {
+      allow read, write: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'super_admin';
+    }
+  }
+}

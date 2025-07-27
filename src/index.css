@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ফ্রেন্ডস এসোসিয়েশন লোগো-ভিত্তিক কালার প্যালেট */
+  --logo-red: #dc2626; /* লোগোর কেন্দ্রীয় ফ্লেম */
+  --logo-orange: #ea580c; /* লোগোর অরেঞ্জ সার্কেল */
+  --logo-blue: #2563eb; /* লোগোর নীল রিবন */
+  --logo-yellow: #f59e0b; /* লোগোর হলুদ রশ্মি */
+  --logo-white: #ffffff; /* লোগোর সাদা ব্যানার */
+  --logo-black: #1f2937; /* লোগোর কালো টেক্সট */
+
+  /* প্রাথমিক রং লোগো থেকে */
+  --primary: var(--logo-red);
+  --primary-foreground: white;
+  --secondary: var(--logo-orange);
+  --secondary-foreground: white;
+  --accent: var(--logo-blue);
+  --accent-foreground: white;
+  --warning: var(--logo-yellow);
+  --warning-foreground: white;
+  
+  /* সিস্টেম রং */
+  --destructive: #dc2626;
+  --destructive-foreground: white;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --card: white;
+  --card-foreground: #0f172a;
+  --popover: white;
+  --popover-foreground: #0f172a;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: var(--logo-red);
+  --background: #ffffff;
+  --foreground: #0f172a;
+}
+
+.dark {
+  --primary: var(--logo-red);
+  --primary-foreground: white;
+  --secondary: #1e293b;
+  --secondary-foreground: #f8fafc;
+  --accent: var(--logo-blue);
+  --accent-foreground: #f8fafc;
+  --destructive: #dc2626;
+  --destructive-foreground: white;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --card: #0f172a;
+  --card-foreground: #f8fafc;
+  --popover: #0f172a;
+  --popover-foreground: #f8fafc;
+  --border: #334155;
+  --input: #334155;
+  --ring: var(--logo-red);
+  --background: #020617;
+  --foreground: #f8fafc;
+}
+
+body {
+  font-family: 'Inter', 'Tahoma', 'SolaimanLipi', sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* লোগো-ভিত্তিক ইউটিলিটি ক্লাসেস */
+.logo-red {
+  color: var(--logo-red);
+}
+
+.bg-logo-red {
+  background-color: var(--logo-red);
+}
+
+.logo-orange {
+  color: var(--logo-orange);
+}
+
+.bg-logo-orange {
+  background-color: var(--logo-orange);
+}
+
+.logo-blue {
+  color: var(--logo-blue);
+}
+
+.bg-logo-blue {
+  background-color: var(--logo-blue);
+}
+
+.logo-yellow {
+  color: var(--logo-yellow);
+}
+
+.bg-logo-yellow {
+  background-color: var(--logo-yellow);
+}
+
+/* লোগো-ভিত্তিক গ্র্যাডিয়েন্ট */
+.bg-logo-gradient {
+  background: linear-gradient(135deg, var(--logo-red) 0%, var(--logo-orange) 50%, var(--logo-blue) 100%);
+}
+
+.bg-logo-gradient-light {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(234, 88, 12, 0.1) 50%, rgba(37, 99, 235, 0.1) 100%);
+}
+
+/* কাস্টম বাটন স্টাইলিং */
+.btn-primary {
+  background: linear-gradient(135deg, var(--logo-red) 0%, var(--logo-orange) 100%);
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #b91c1c 0%, #c2410c 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(220, 38, 38, 0.2);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--logo-blue) 0%, var(--logo-yellow) 100%);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #d97706 100%);
+}
+
+/* কার্ড স্টাইলিং */
+.card-gradient {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.05) 0%, rgba(234, 88, 12, 0.05) 50%, rgba(37, 99, 235, 0.05) 100%);
+  border: 1px solid rgba(220, 38, 38, 0.1);
+}
+
+.card-red {
+  border-left: 4px solid var(--logo-red);
+  background: rgba(220, 38, 38, 0.02);
+}
+
+.card-orange {
+  border-left: 4px solid var(--logo-orange);
+  background: rgba(234, 88, 12, 0.02);
+}
+
+.card-blue {
+  border-left: 4px solid var(--logo-blue);
+  background: rgba(37, 99, 235, 0.02);
+}
+
+.card-yellow {
+  border-left: 4px solid var(--logo-yellow);
+  background: rgba(245, 158, 11, 0.02);
+}
+
+/* ব্যাজ রং */
+.badge-success {
+  background-color: #10b981;
+  color: white;
+}
+
+.badge-warning {
+  background-color: var(--logo-yellow);
+  color: white;
+}
+
+.badge-danger {
+  background-color: var(--logo-red);
+  color: white;
+}
+
+.badge-primary {
+  background-color: var(--logo-blue);
+  color: white;
+}
+
+/* সাইডবার স্টাইলিং */
+.sidebar-gradient {
+  background: linear-gradient(180deg, white 0%, rgba(220, 38, 38, 0.02) 100%);
+}
+
+/* স্ট্যাট কার্ড */
+.stat-card-red {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.stat-card-orange {
+  background: linear-gradient(135deg, rgba(234, 88, 12, 0.1) 0%, rgba(234, 88, 12, 0.05) 100%);
+  border: 1px solid rgba(234, 88, 12, 0.2);
+}
+
+.stat-card-blue {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0.05) 100%);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.stat-card-yellow {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* প্রিন্ট স্টাইল */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    background: white;
+    color: black;
+  }
+  
+  .print-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .print-logo {
+    width: 60px;
+    height: 60px;
+  }
+  
+  /* প্রিন্টে গ্র্যাডিয়েন্ট বন্ধ */
+  .bg-logo-gradient,
+  .card-gradient {
+    background: white !important;
+  }
+}
+
+/* অ্যানিমেশন */
+@keyframes logoGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(220, 38, 38, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(234, 88, 12, 0.5), 0 0 30px rgba(37, 99, 235, 0.3);
+  }
+}
+
+.logo-glow {
+  animation: logoGlow 3s ease-in-out infinite;
+}
+
+/* স্ক্রলবার কাস্টমাইজেশন */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(220, 38, 38, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--logo-red) 0%, var(--logo-orange) 100%);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #b91c1c 0%, #c2410c 100%);
+}
